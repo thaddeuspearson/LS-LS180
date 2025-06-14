@@ -5,7 +5,7 @@ Repository for working through Launch School's LS180 Course
 1. [Introduction to SQL](https://launchschool.com/books/sql)
 
 ## :memo: Articles
-1. 
+1. [PostgreSQL Documentation](https://wiki.postgresql.org/wiki/Main_Page)
 
 ## :clipboard: Notes
 - 
