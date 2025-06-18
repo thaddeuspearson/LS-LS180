@@ -34,3 +34,13 @@ Repository for working through Launch School's LS180 Course
 |----------|---------|-------|
 | length | SELECT length(full_name) FROM users; | This returns the length of every user's name. You could also use `length` in a `WHERE` clause to filter data based on name length. |
 | trim | SELECT trim(leading ' ' from full_name) FROM users; | If any of the data in our `full_name` column had a space in front of the name, using the `trim` function like this would remove that leading space. |
+
+#### Date / Time Functions
+
+
+
+| Function | Example | Notes |
+|----------|---------|-------|
+| date_part | SELECT full_name, date_part('year', last_login) FROM users; | `date_part` allows us to view a table that only contains a part of a user's timestamp that we specify. The example query allows us to see each user's name along with the year of the `last_login` date. Sometimes having date/time data down to the second isn't needed. |
+| age | SELECT full_name, age(last_login) FROM users; | The `age` function, when passed a single `timestamp` as an argument, calculates the time elapsed between that timestamp and the current time. The example query allows us to see how long it has been since each user last logged in. |
+
