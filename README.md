@@ -7,6 +7,8 @@ Repository for working through Launch School's LS180 Course
 ## :memo: Articles
 1. [PostgreSQL Documentation](https://wiki.postgresql.org/wiki/Main_Page)
 
+1. [Grokking GROUP BY](https://medium.com/@iandaustin/grokking-group-by-bd0bfd7082ea)
+
 ## :clipboard: Notes
 
 ### ALTER TABLE / COLUMN SYNTAX
