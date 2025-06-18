@@ -44,3 +44,13 @@ Repository for working through Launch School's LS180 Course
 | date_part | SELECT full_name, date_part('year', last_login) FROM users; | `date_part` allows us to view a table that only contains a part of a user's timestamp that we specify. The example query allows us to see each user's name along with the year of the `last_login` date. Sometimes having date/time data down to the second isn't needed. |
 | age | SELECT full_name, age(last_login) FROM users; | The `age` function, when passed a single `timestamp` as an argument, calculates the time elapsed between that timestamp and the current time. The example query allows us to see how long it has been since each user last logged in. |
 
+
+#### Aggregate Functions:
+
+| Function | Example | Notes |
+|----------|---------|-------|
+| count | SELECT count(id) FROM users; | Returns the number of values in the column passed in as an argument. This type of function can be very useful depending on the context. We could find the number of users who have enabled an account, or even how many users have certain last names if we use the above statement with other clauses. |
+| sum | SELECT sum(id) FROM users; | Not to be confused with `count`. This _sums_ numeric type values for all of the selected rows and returns the total. |
+| min | SELECT min(last_login) FROM users; | This returns the lowest value in a column for all of the selected rows. Can be used with various data types such as numeric, date/ time, and string. 
+| max | SELECT max(last_login) FROM users; | This returns the highest value in a column for all of the selected rows. Can be used with various data types such as numeric, date/ time, and string. |
+| avg | SELECT avg(id) FROM users; | Returns the average (arithmetic mean) of numeric type values for all of the selected rows. |
