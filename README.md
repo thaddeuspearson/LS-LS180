@@ -7,7 +7,11 @@ Repository for working through Launch School's LS180 Course
 ## :memo: Articles
 1. [PostgreSQL Documentation](https://wiki.postgresql.org/wiki/Main_Page)
 
-1. [Grokking GROUP BY](https://medium.com/@iandaustin/grokking-group-by-bd0bfd7082ea)
+1. [Grokking `GROUP BY`](https://medium.com/@iandaustin/grokking-group-by-bd0bfd7082ea)
+
+1. [SQL Bolt](https://sqlbolt.com/) - an interactive learning tool
+
+1. [PostgreSQL Exercises](https://pgexercises.com/) - an interactive learning tool
 
 ## :clipboard: Notes
 
