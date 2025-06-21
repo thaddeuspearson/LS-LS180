@@ -12,4 +12,4 @@ CREATE TABLE birds (
     name varchar(25),
     age integer,
     species varchar(15)
-)
+);
