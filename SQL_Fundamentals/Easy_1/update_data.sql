@@ -5,3 +5,9 @@ with a species of 'Crow' now read 'Raven'.
 */
 
 UPDATE birds SET species TO 'Raven' WHERE species = 'Crow';
+
+/*
+Oops. Jamie isn't an Owl - he's a Hawk. Correct his information.
+*/
+
+UPDATE birds SET species To 'Hawk' WHERE name = 'Jamie';
