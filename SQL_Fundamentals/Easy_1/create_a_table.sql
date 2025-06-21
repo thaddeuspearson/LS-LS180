@@ -8,7 +8,7 @@ Make a table called birds. It should have the following fields:
 */
 
 CREATE TABLE birds (
-    id serial,
+    id serial PRIMARY KEY,
     name varchar(25),
     age integer,
     species varchar(15)
