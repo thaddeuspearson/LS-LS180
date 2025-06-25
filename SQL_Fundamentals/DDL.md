@@ -1,9 +1,9 @@
 # DDL
 *LS180 SQL Fundamentals Exercises*
 
-## Create an Extrasolar Planetary Database
+## 1. Create an Extrasolar Planetary Database
 
-### Challenge
+### Challenge:
 
 Create a postgresql database named `extrasolar`, and then create two tables in the database as follows:
 
@@ -27,7 +27,7 @@ Create a postgresql database named `extrasolar`, and then create two tables in t
     
     - `mass`: estimated mass in terms of Jupiter masses; use an integer for this value.
 
-### Solution
+### Solution:
 
 <details><summary>Click to Reveal</summary>
 
@@ -45,7 +45,25 @@ CREATE TABLE stars (
 CREATE TABLE planets (
     id serial PRIMARY KEY,
     designation varchar(1) UNIQUE,
-    mass integer,
+    mass integer
 );
 ```
+</details>
+
+<br>
+
+## 2. Relating Stars and Planets
+
+### Challenge:
+
+Add a `star_id` column to the `planets` table; this column will be used to relate each planet in the planets table to its home star in the `stars` table. Make sure the column is defined in such a way that it is required and must have a value that is present as an id in the stars table.
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+ALTER TABLE planets ADD COLUMN star_id integer NOT NULL REFERENCES stars (id);
+```
+
 </details>
