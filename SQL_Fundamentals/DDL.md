@@ -116,3 +116,25 @@ ALTER COLUMN spectral_type SET NOT NULL,
 ADD CONSTRAINT spectral_type_check CHECK (spectral_type IN ('O', 'B', 'A', 'F', 'G', 'K', 'M'));
 ```
 </details>
+
+## Enumerated Types
+
+### Challenge:
+
+Modify the `stars` table to remove the CHECK constraint on the `spectral_type` column, and then modify the `spectral_type` column so it becomes an enumerated type that restricts it to one of the following 7 values: 'O', 'B', 'A', 'F', 'G', 'K', and 'M'.
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+CREATE TYPE spectral_type_enum AS ENUM ('O', 'B', 'A', 'F', 'G', 'K', 'M')
+
+ALTER TABLE stars
+DROP CONSTRAINT spectral_type_check;
+
+ALTER TABLE stars
+ALTER COLUMN spectral_type TYPE spectral_type_enum
+                           USING spectral_type::spectral_type_enum;
+```
+</details>
