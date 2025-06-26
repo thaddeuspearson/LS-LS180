@@ -84,12 +84,11 @@ ALTER COLUMN name TYPE varchar(50);
 ```
 </details>
 
-## Stellar Distance Precision
+## 4. Stellar Distance Precision
 
 ### Challenge:
 
 Modify the distance column in the `stars` table so that it allows fractional light years to any degree of precision required.
-
 
 ### Solution:
 
@@ -101,3 +100,19 @@ ALTER COLUMN distance TYPE numeric;
 ```
 </details>
 
+## 5. Check Values in List
+
+### Challenge:
+
+Add a constraint to the table `stars` on the `spectral_type` column that will enforce the requirement that a row must hold one of the 7 listed values: 'O', 'B', 'A', 'F', 'G', 'K', and 'M'. Also, make sure that a value is required for this column.
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+ALTER TABLE stars
+ALTER COLUMN spectral_type SET NOT NULL,
+ADD CONSTRAINT spectral_type_check CHECK (spectral_type IN ('O', 'B', 'A', 'F', 'G', 'K', 'M'));
+```
+</details>
