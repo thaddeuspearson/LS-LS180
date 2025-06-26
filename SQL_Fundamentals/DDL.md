@@ -63,7 +63,23 @@ Add a `star_id` column to the `planets` table; this column will be used to relat
 <details><summary>Click to Reveal</summary>
 
 ```sql
-ALTER TABLE planets ADD COLUMN star_id integer NOT NULL REFERENCES stars (id);
+ALTER TABLE planets 
+ADD COLUMN star_id integer NOT NULL REFERENCES stars (id);
 ```
+</details>
 
+## 3. Increase Star Name Length
+
+### Challenge:
+
+Modify the name column of the `stars` table so that it allows star names as long as 50 characters.
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+ALTER TABLE stars 
+ALTER COLUMN name TYPE varchar(50);
+```
 </details>
