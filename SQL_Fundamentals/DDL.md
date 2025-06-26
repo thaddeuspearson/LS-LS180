@@ -83,3 +83,21 @@ ALTER TABLE stars
 ALTER COLUMN name TYPE varchar(50);
 ```
 </details>
+
+## Stellar Distance Precision
+
+### Challenge:
+
+Modify the distance column in the `stars` table so that it allows fractional light years to any degree of precision required.
+
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+ALTER TABLE stars
+ALTER COLUMN distance TYPE numeric;
+```
+</details>
+
