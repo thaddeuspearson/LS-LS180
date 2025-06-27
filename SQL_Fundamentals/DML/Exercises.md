@@ -57,7 +57,7 @@ CREATE TABLE parts (
 ```sql
 INSERT INTO devices (name) VALUES ('Accelerometer'), ('Gyroscope');
 
-INSERT INTO parts (part_number, device_id) VALUES (1, 1), (2, 1), (10, 2), (11, 2), (12, 2), (13, 2), (14, 2);
+INSERT INTO parts (part_number, device_id) VALUES (1, 1), (2, 1), (3, 1), (10, 2), (11, 2), (12, 2), (13, 2), (14, 2);
 
 INSERT INTO parts (part_number) VALUES (100), (200), (300);
 ```
