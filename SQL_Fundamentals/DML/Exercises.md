@@ -62,3 +62,20 @@ INSERT INTO parts (part_number, device_id) VALUES (1, 1), (2, 1), (3, 1), (10, 2
 INSERT INTO parts (part_number) VALUES (100), (200), (300);
 ```
 </details>
+
+<br>
+
+## 3. Inner Join
+
+### Challenge:
+
+Write an SQL query to display all devices along with all the parts that make them up. We only want to display the name of the devices. Its parts should only display the part_number.
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+SELECT d.name, p.part_number FROM devices d JOIN parts p ON d.id = p.device_id;
+```
+</details>
