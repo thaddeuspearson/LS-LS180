@@ -137,3 +137,30 @@ SELECT d.name, count(p.device_id) FROM devices d LEFT JOIN parts p on d.id = p.d
 SELECT d.name, count(p.device_id) FROM devices d LEFT JOIN parts p on d.id = p.device_id GROUP BY d.name ORDER BY d.name DESC;
 ```
 </details>
+
+<br>
+
+## IS NULL and IS NOT NULL
+
+### Challenge:
+
+1. Write two SQL queries:
+
+    - One that generates a listing of parts that currently belong to a device.
+    - One that generates a listing of parts that don't belong to a device.
+
+2. Do not include the `id` column in your queries.
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+1. parts that currently belong to a device
+    ```sql
+    SELECT part_number, device_id FROM parts WHERE device_id IS NOT NULL;
+    ```
+2. parts that currently don't beling to a device
+    ```sql
+    SELECT part_number, device_id FROM parts WHERE device_id IS NULL;
+    ```
+</details>
