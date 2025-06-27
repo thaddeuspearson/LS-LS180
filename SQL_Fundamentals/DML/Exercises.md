@@ -79,3 +79,20 @@ INSERT INTO parts (part_number) VALUES (100), (200), (300);
 SELECT d.name, p.part_number FROM devices d JOIN parts p ON d.id = p.device_id;
 ```
 </details>
+
+<br>
+
+## 4. Select part_number
+
+### Challenge:
+
+1. We want to grab all parts that have a part_number that starts with 3. Write a SELECT query to get this information. This table may show all attributes of the parts table.
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+SELECT * FROM parts WHERE part_number::text LIKE '3%';
+```
+</details>
