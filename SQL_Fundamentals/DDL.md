@@ -160,3 +160,20 @@ ALTER TABLE planets
 ALTER COLUMN designation SET NOT NULL;
 ```
 </details>
+
+## Add a Semi-Major Axis Column
+
+### Challenge:
+
+Add a `semi_major_axis` column for the semi-major axis of each planet's orbit; the semi-major axis is the average distance from the planet's star as measured in astronomical units _(1 AU is the average distance of the Earth from the Sun)_. Use a data type of numeric, and require that each planet have a value for the semi_major_axis.
+
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+ALTER TABLE planets
+ADD COLUMN semi_major_axis numeric NOT NULL;
+```
+</details>
