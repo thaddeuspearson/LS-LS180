@@ -206,3 +206,21 @@ SELECT d.name, count(p.device_id) FROM devices d LEFT JOIN parts p on d.id = p.d
 UPDATE parts SET device_id = 1 WHERE id IN (SELECT id FROM parts WHERE device_id = 2 ORDER BY device_id DESC LIMIT 2);
 ```
 </details>
+
+<br>
+
+## 10. Delete Accelerometer
+
+### Challenge:
+
+1. Delete any data related to `"Accelerometer"`, this includes the parts associated with an Accelerometer.
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+DELETE FROM parts WHERE device_id = (SELECT id from devices WHERE name = 'Accelerometer');
+DELETE FROM devices WHERE name = 'Accelerometer';
+```
+</details>
