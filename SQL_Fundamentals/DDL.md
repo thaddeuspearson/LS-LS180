@@ -128,7 +128,7 @@ Modify the `stars` table to remove the CHECK constraint on the `spectral_type` c
 <details><summary>Click to Reveal</summary>
 
 ```sql
-CREATE TYPE spectral_type_enum AS ENUM ('O', 'B', 'A', 'F', 'G', 'K', 'M')
+CREATE TYPE spectral_type_enum AS ENUM ('O', 'B', 'A', 'F', 'G', 'K', 'M');
 
 ALTER TABLE stars
 DROP CONSTRAINT spectral_type_check;
@@ -136,5 +136,27 @@ DROP CONSTRAINT spectral_type_check;
 ALTER TABLE stars
 ALTER COLUMN spectral_type TYPE spectral_type_enum
                            USING spectral_type::spectral_type_enum;
+```
+</details>
+
+## Planetary Mass Precision
+
+### Challenge:
+
+Modify the `mass` column in the `planets` table so that it allows fractional masses to any degree of precision required. 
+In addition, make sure the `mass` is required and positive. Finally, make the `designation` column required.
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+ALTER TABLE planets
+ALTER COLUMN mass SET NOT NULL,
+ALTER COLUMN mass TYPE numeric,
+ADD CHECK (mass > 0);
+
+ALTER TABLE planets
+ALTER COLUMN designation SET NOT NULL;
 ```
 </details>
