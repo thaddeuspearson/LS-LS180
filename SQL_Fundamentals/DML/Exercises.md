@@ -116,7 +116,7 @@ SELECT d.name, count(p.device_id) FROM devices d LEFT JOIN parts p on d.id = p.d
 
 <br>
 
-## ORDER BY
+## 6. ORDER BY
 
 ### Challenge:
 
@@ -140,7 +140,7 @@ SELECT d.name, count(p.device_id) FROM devices d LEFT JOIN parts p on d.id = p.d
 
 <br>
 
-## IS NULL and IS NOT NULL
+## 7. IS NULL and IS NOT NULL
 
 ### Challenge:
 
@@ -162,5 +162,28 @@ SELECT d.name, count(p.device_id) FROM devices d LEFT JOIN parts p on d.id = p.d
 2. parts that currently don't beling to a device
     ```sql
     SELECT part_number, device_id FROM parts WHERE device_id IS NULL;
+    ```
+</details>
+
+<br>
+
+## 8. Oldest Device
+
+### Challenge:
+
+1. Insert a device called `'Magnetometer'` to devices. Give it at least 1 part.
+
+2. Write an SQL statement that will return the name of the oldest device from our devices table.
+
+### Solution:
+
+1. Insert `'Magnetometer'`:
+    ```sql
+    INSERT INTO devices (name) VALUES ('Magnetometer');
+    INSERT INTO parts (part_number, device_id) VALUES (42, 3);
+    ```
+2. Select oldest Device:
+    ```sql
+    SELECT name AS oldest_device FROM devices ORDER BY created_at LIMIT 1;
     ```
 </details>
