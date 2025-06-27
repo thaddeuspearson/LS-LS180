@@ -230,12 +230,17 @@ CREATE TABLE moons (
 
 2. Delete the `extrasolar` database. Use the psql console -- don't use the terminal level commands.
 
-
 ### Solution:
 
 <details><summary>Click to Reveal</summary>
 
-```sql
-
-```
+1. Dump the Database:
+    ```bash
+    pg_dump --inserts extrasolar > extrasolar.dump.sql
+    ```
+2. Drop the Database:
+    ```psql
+    \c postgres
+    DROP DATABASE extrasolar;
+    ```
 </details>
