@@ -37,3 +37,28 @@ CREATE TABLE parts (
 );
 ```
 </details>
+
+<br>
+
+## 2. Insert Data for Parts and Devices
+
+### Challenge:
+
+1. Add in two different devices. One should be named, `"Accelerometer"`. The other should be named, `"Gyroscope"`.
+
+2. The first device should have 3 parts _(this is grossly simplified)_. The second device should have 5 parts. The part numbers may be any number between 1 and 10000.
+
+3. There should also be 3 parts that don't belong to any device yet.
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+INSERT INTO devices (name) VALUES ('Accelerometer'), ('Gyroscope');
+
+INSERT INTO parts (part_number, device_id) VALUES (1, 1), (2, 1), (10, 2), (11, 2), (12, 2), (13, 2), (14, 2);
+
+INSERT INTO parts (part_number) VALUES (100), (200), (300);
+```
+</details>
