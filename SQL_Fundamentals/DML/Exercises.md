@@ -177,6 +177,8 @@ SELECT d.name, count(p.device_id) FROM devices d LEFT JOIN parts p on d.id = p.d
 
 ### Solution:
 
+<details><summary>Click to Reveal</summary>
+
 1. Insert `'Magnetometer'`:
     ```sql
     INSERT INTO devices (name) VALUES ('Magnetometer');
@@ -186,4 +188,21 @@ SELECT d.name, count(p.device_id) FROM devices d LEFT JOIN parts p on d.id = p.d
     ```sql
     SELECT name AS oldest_device FROM devices ORDER BY created_at LIMIT 1;
     ```
+</details>
+
+<br>
+
+## 9. UPDATE device_id
+
+### Challenge:
+
+1. The last two parts we're using for device number 2, `"Gyroscope"`, actually belong to an `"Accelerometer"`. Write an SQL statement that will associate the last two parts from our parts table with an `"Accelerometer"` instead of a `"Gyroscope"`.
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+UPDATE parts SET device_id = 1 WHERE id IN (SELECT id FROM parts WHERE device_id = 2 ORDER BY device_id DESC LIMIT 2);
+```
 </details>
