@@ -68,6 +68,8 @@ ADD COLUMN star_id integer NOT NULL REFERENCES stars (id);
 ```
 </details>
 
+<br>
+
 ## 3. Increase Star Name Length
 
 ### Challenge:
@@ -84,6 +86,8 @@ ALTER COLUMN name TYPE varchar(50);
 ```
 </details>
 
+<br>
+
 ## 4. Stellar Distance Precision
 
 ### Challenge:
@@ -99,6 +103,8 @@ ALTER TABLE stars
 ALTER COLUMN distance TYPE numeric;
 ```
 </details>
+
+<br>
 
 ## 5. Check Values in List
 
@@ -117,7 +123,9 @@ ADD CONSTRAINT spectral_type_check CHECK (spectral_type IN ('O', 'B', 'A', 'F', 
 ```
 </details>
 
-## Enumerated Types
+<br>
+
+## 6. Enumerated Types
 
 ### Challenge:
 
@@ -139,7 +147,9 @@ ALTER COLUMN spectral_type TYPE spectral_type_enum
 ```
 </details>
 
-## Planetary Mass Precision
+<br>
+
+## 7. Planetary Mass Precision
 
 ### Challenge:
 
@@ -161,7 +171,9 @@ ALTER COLUMN designation SET NOT NULL;
 ```
 </details>
 
-## Add a Semi-Major Axis Column
+<br>
+
+## 8. Add a Semi-Major Axis Column
 
 ### Challenge:
 
@@ -177,3 +189,36 @@ ALTER TABLE planets
 ADD COLUMN semi_major_axis numeric NOT NULL;
 ```
 </details>
+
+<br>
+
+## 9. Add a Moons Table
+
+### Challenge:
+
+1. Add a `moons` table to the `extrasolar` database. The table should include the following data:
+
+    - `id`: a unique serial number that auto-increments and serves as a primary key for this table.
+    - `designation`: the designation of the moon. We will assume that moon designations will be numbers, with the first moon discovered for each planet being moon 1, the second moon being moon 2, etc. The designation is required.
+    - `semi_major_axis`: the average distance in kilometers from the planet when a moon is farthest from its corresponding planet. This field must be a number greater than 0, but is not required; it may take some time before we are able to measure moon-to-planet distances in extrasolar systems.
+    - `mass`: the mass of the moon measured in terms of Earth Moon masses. This field must be a numeric value greater than 0, but is not required.
+
+2. Make sure you also specify any foreign keys necessary to tie each moon to other rows in the database.
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+CREATE TABLE moons (
+    id serial,
+    designation integer NOT NULL CHECK (designation > 0),
+    semi_major_axis numeric CHECK (semi_major_axis > 0.0),
+    mass numeric CHECK (mass > 0.0),
+    planet_id integer NOT NULL REFERENCES planets (id)
+);
+```
+</details>
+
+<br>
+
