@@ -113,3 +113,27 @@ SELECT * FROM parts WHERE part_number::text LIKE '3%';
 SELECT d.name, count(p.device_id) FROM devices d LEFT JOIN parts p on d.id = p.device_id GROUP BY d.name;
 ```
 </details>
+
+<br>
+
+## ORDER BY
+
+### Challenge:
+
+1. Alter the SQL query from the above challenge so that we get a result table that looks like the following
+
+    ```sql
+    name          | count
+    --------------+-------
+    Gyroscope     |     5
+    Accelerometer |     3
+    ```
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+SELECT d.name, count(p.device_id) FROM devices d LEFT JOIN parts p on d.id = p.device_id GROUP BY d.name ORDER BY d.name DESC;
+```
+</details>
