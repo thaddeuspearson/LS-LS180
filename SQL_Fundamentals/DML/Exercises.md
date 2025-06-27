@@ -69,7 +69,7 @@ INSERT INTO parts (part_number) VALUES (100), (200), (300);
 
 ### Challenge:
 
-Write an SQL query to display all devices along with all the parts that make them up. We only want to display the name of the devices. Its parts should only display the part_number.
+1. Write an SQL query to display all devices along with all the parts that make them up. We only want to display the name of the devices. Its parts should only display the part_number.
 
 ### Solution:
 
