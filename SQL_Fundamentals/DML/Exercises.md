@@ -96,3 +96,20 @@ SELECT d.name, p.part_number FROM devices d JOIN parts p ON d.id = p.device_id;
 SELECT * FROM parts WHERE part_number::text LIKE '3%';
 ```
 </details>
+
+<br>
+
+## 5. Aggregate Functions
+
+### Challenge:
+
+1. Write an SQL query that returns a result table with the name of each device in our database together with the number of parts for that device.
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+SELECT d.name, count(p.device_id) FROM devices d LEFT JOIN parts p on d.id = p.device_id GROUP BY d.name;
+```
+</details>
