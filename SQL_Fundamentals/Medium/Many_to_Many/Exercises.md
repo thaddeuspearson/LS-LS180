@@ -136,24 +136,22 @@ FROM customers c JOIN customers_services cs ON c.id = cs.customer_id;
 
 <details><summary>Click to Reveal</summary>
 
-1. 
+1. Customers without services:
+    ```sql
+    SELECT c.*
+    FROM customers c 
+        LEFT JOIN customers_services cs on c.id = cs.customer_id
+    WHERE cs.service_id IS NULL; 
+    ```
 
-```sql
-SELECT c.*
-FROM customers c 
-    LEFT JOIN customers_services cs on c.id = cs.customer_id
-WHERE cs.service_id IS NULL; 
-```
-
-2. 
-
-```sql
-SELECT c.*, s.*
-FROM customers c 
-    LEFT JOIN customers_services cs on c.id = cs.customer_id
-    FULL JOIN services s ON cs.service_id = s.id
-WHERE s.id IS NULL OR c.name IS NULL;
-```
+2. Customers without services and services without customers:
+    ```sql
+    SELECT c.*, s.*
+    FROM customers c 
+        LEFT JOIN customers_services cs on c.id = cs.customer_id
+        FULL JOIN services s ON cs.service_id = s.id
+    WHERE s.id IS NULL OR c.name IS NULL;
+    ```
 
 </details>
 
