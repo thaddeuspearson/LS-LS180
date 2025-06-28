@@ -238,7 +238,7 @@ FROM services s
 
 <br>
 
-## 8. Add new customer
+## 8. Add New Customer
 
 ### Challenge:
 
