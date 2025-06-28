@@ -47,7 +47,6 @@ Initially, we need to create a `billing` database with a customers table and a s
         ```
 
 4. Create a join table that associates customers with services and vice versa. 
-
     - The join table should have columns for both the services id and the customers id, as well as a primary key named id that auto-increments.
 
     - The customer id in this table should have the property that deleting the corresponding customer record from the customers table will automatically delete all rows from the join table that have that customer_id. Do not apply this same property to the service id.
@@ -55,8 +54,6 @@ Initially, we need to create a `billing` database with a customers table and a s
     - Each combination of customer and service in the table should be unique. In other words, a customer shouldn't be listed as using a particular service more than once.
 
 5. Enter some data in the join table that shows which services each customer uses as follows:
-
-    
     - Pat Johnson uses Unix Hosting, DNS, and Whois Registration
     - Nancy Monreal doesn't have any active services
     - Lynn Blake uses Unix Hosting, DNS, Whois Registration, High Bandwidth, and Business Support
@@ -96,7 +93,7 @@ INSERT INTO services (description, price) VALUES
 
 CREATE TABLE customers_services (
     id serial PRIMARY KEY,
-    customer_id integer REFERENCES customers (id) ON DELETE CASCADE NOT NULL ,
+    customer_id integer REFERENCES customers (id) ON DELETE CASCADE NOT NULL,
     service_id integer REFERENCES services (id) NOT NULL,
     UNIQUE(customer_id, service_id)
 );
@@ -104,5 +101,23 @@ CREATE TABLE customers_services (
 INSERT INTO customers_services (customer_id, service_id) VALUES
     (1, 1), (1, 2), (1, 3), (3, 1), (3, 2), (3, 3), (3, 4), (3, 5), 
     (4, 1), (4, 4), (5, 1), (5, 2), (5, 6), (6, 1), (6, 6), (6, 7);
+```
+</details>
+
+<br>
+
+## 2. Get Customers With Services
+
+### Challenge:
+
+1. Write a query to retrieve the customer data for every customer who currently subscribes to at least one service.
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+SELECT DISTINCT c.* 
+FROM customers c JOIN customers_services cs ON c.id = cs.customer_id;
 ```
 </details>
