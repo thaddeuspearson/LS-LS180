@@ -256,3 +256,24 @@ INSERT INTO customers_services (customer_id, service_id)
 </details>
 
 <br>
+
+## Hypothetically
+
+### Challenge:
+
+1. The company president is looking to increase revenue. As a prelude to his decision making, he asks for two numbers: the amount of expected income from "big ticket" services (those services that cost more than $100) and the maximum income the company could achieve if it managed to convince all of its customers to select all of the company's big ticket items. For simplicity, your solution should involve two separate SQL queries: one that reports the current expected income level, and one that reports the hypothetical maximum.
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+SELECT sum(s.price) 
+FROM services s JOIN customers_services cs ON s.id = cs.service_id
+WHERE s.price > 100;
+
+SELECT sum(s.price)
+FROM customers CROSS JOIN services s
+WHERE s.price > 100;
+```
+</details>
