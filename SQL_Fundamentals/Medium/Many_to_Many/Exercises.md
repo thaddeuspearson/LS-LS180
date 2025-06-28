@@ -170,8 +170,29 @@ Using `RIGHT OUTER JOIN`, write a query to display a list of all services that a
 ```sql
 SELECT s.description
 FROM customers_services cs 
-RIGHT JOIN services s ON cs.service_id = s.id
+    RIGHT JOIN services s ON cs.service_id = s.id
 WHERE cs.customer_id IS NULL;
+```
+</details>
+
+<br>
+
+## Services for each Customer
+
+### Challenge:
+
+1. Write a query to display a list of all customer names together with a comma-separated list of the services they use. Your output should look like this:
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+SELECT c.name, string_agg(s.description, ', ')
+FROM customers c
+    LEFT JOIN customers_services cs ON c.id = cs.customer_id
+    LEFT JOIN services s ON cs.service_id = s.id
+GROUP BY c.id;
 ```
 </details>
 
