@@ -257,7 +257,7 @@ INSERT INTO customers_services (customer_id, service_id)
 
 <br>
 
-## Hypothetically
+## 9. Hypothetically
 
 ### Challenge:
 
@@ -275,5 +275,26 @@ WHERE s.price > 100;
 SELECT sum(s.price)
 FROM customers CROSS JOIN services s
 WHERE s.price > 100;
+```
+</details>
+
+<br>
+
+## 10. Deleting Rows
+
+### Challenge:
+
+1. Write the necessary SQL statements to delete the `"Bulk Email"` service and customer `"Chen Ke-Hua` from the database.
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+DELETE FROM customers_services WHERE service_id = 7;
+
+DELETE FROM services WHERE description = 'Bulk Email';
+
+DELETe FROM customers WHERE name = 'Chen Ke-Hua';
 ```
 </details>
