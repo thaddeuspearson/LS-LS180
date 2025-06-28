@@ -157,3 +157,22 @@ FROM customers c JOIN customers_services cs ON c.id = cs.customer_id;
 
 <br>
 
+## Get Services With No Customers
+
+### Challenge:
+
+Using `RIGHT OUTER JOIN`, write a query to display a list of all services that are not currently in use.
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+SELECT s.description
+FROM customers_services cs 
+RIGHT JOIN services s ON cs.service_id = s.id
+WHERE cs.customer_id IS NULL;
+```
+</details>
+
+<br>
