@@ -197,3 +197,24 @@ GROUP BY c.id;
 </details>
 
 <br>
+
+## Services With At Least 3 Customers
+
+### Challenge:
+
+1. Write a query that displays the description for every service that is subscribed to by at least 3 customers. Include the customer count for each description in the report.
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+SELECT s.description, count(cs.customer_id) AS count
+FROM services s
+    JOIN customers_services cs ON s.id = cs.service_id
+GROUP BY s.id
+HAVING count(cs.customer_id) >= 3;
+```
+</details>
+
+<br>
