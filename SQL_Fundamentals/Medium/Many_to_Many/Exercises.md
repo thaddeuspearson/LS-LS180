@@ -124,7 +124,7 @@ FROM customers c JOIN customers_services cs ON c.id = cs.customer_id;
 
 <br>
 
-## Get Customers With No Services
+## 3. Get Customers With No Services
 
 ### Challenge:
 
@@ -157,7 +157,7 @@ FROM customers c JOIN customers_services cs ON c.id = cs.customer_id;
 
 <br>
 
-## Get Services With No Customers
+## 4. Get Services With No Customers
 
 ### Challenge:
 
@@ -177,7 +177,7 @@ WHERE cs.customer_id IS NULL;
 
 <br>
 
-## Services for each Customer
+## 5. Services for each Customer
 
 ### Challenge:
 
@@ -198,7 +198,7 @@ GROUP BY c.id;
 
 <br>
 
-## Services With At Least 3 Customers
+## 6. Services With At Least 3 Customers
 
 ### Challenge:
 
@@ -214,6 +214,25 @@ FROM services s
     JOIN customers_services cs ON s.id = cs.service_id
 GROUP BY s.id
 HAVING count(cs.customer_id) >= 3;
+```
+</details>
+
+<br>
+
+## 7. Total Gross Income
+
+### Challenge:
+
+1. Assuming that everybody in our database has a bill coming due, and that all of them will pay on time, write a query to compute the total gross income we expect to receive.
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+SELECT sum(s.price) AS gross
+FROM services s
+    JOIN customers_services cs ON s.id = cs.service_id;
 ```
 </details>
 
