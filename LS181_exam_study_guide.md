@@ -26,7 +26,7 @@
 
 ### 4. [Be able to describe what primary, foreign, natural, and surrogate keys are](https://launchschool.com/lessons/a1779fd2/assignments/00e428da)
 
-### 5. Create and remove `CHECK` constraints from a column.
+### 5. [Create and remove `CHECK` constraints from a column](https://launchschool.com/books/sql/read/add_data#constraintsdata)
 
 ### 6. [Create and remove foreign key constraints from a column](https://launchschool.com/lessons/5ae760fa/assignments/bb4f3ba2)
 
