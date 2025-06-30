@@ -169,3 +169,33 @@ FROM (
 </details>
 
 <br>
+
+## 6. Scalar Subqueries
+
+### Challenge:
+
+For this exercise, use a scalar subquery to determine the number of bids on each item. The entire query should return a table that has the name of each item along with the number of bids on an item.
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+1. Using a Scalar Subquery
+```sql
+SELECT name, (
+    SELECT count(item_id)
+    FROM bids
+    WHERE item_id = i.id)
+FROM items i;
+```
+2. Using a LEFT JOIN
+```sql
+SELECT i.name, count(item_id)
+FROM items i 
+    LEFT JOIN bids b ON b.item_id = i.id
+GROUP BY i.id
+ORDER BY i.id;
+```
+</details>
+
+<br>
