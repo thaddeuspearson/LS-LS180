@@ -86,7 +86,7 @@ Write a SQL query that shows all items that have had bids put on them. Use the l
 <details><summary>Click to Reveal</summary>
 
 ```sql
-SELECT name AS "Bid on Items"
+SELECT i.name AS "Bid on Items"
 FROM items i 
 WHERE i.id IN (
     SELECT DISTINCT item_id FROM bids
@@ -96,3 +96,21 @@ WHERE i.id IN (
 
 <br>
 
+## 3. Conditional Subqueries: NOT IN
+
+### Challenge:
+
+Write a SQL query that shows all items that have not had bids put on them. Use the logical operator NOT IN for this exercise, as well as a subquery.
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+SELECT i.name AS "Not Bid On"
+FROM items i
+WHERE i.id NOT IN (
+    SELECT item_id FROM bids
+);
+```
+</details>
