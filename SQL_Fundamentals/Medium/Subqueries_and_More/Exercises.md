@@ -37,6 +37,7 @@ Create a new database called `auction`. In this database there will be three tab
 
 <details><summary>Click to Reveal</summary>
 
+1. Create the relations
 ```sql
 CREATE DATABASE auction;
 
@@ -50,7 +51,7 @@ CREATE TABLE items (
     name text NOT NULL,
     initial_price numeric(6,2) NOT NULL CHECK (initial_price BETWEEN 0.01 AND 1000.00),
     sales_price numeric(6,2) CHECK (sales_price BETWEEN 0.01 AND 1000.00)
-):
+);
 
 CREATE TABLE bids (
     id serial PRIMARY KEY,
@@ -60,6 +61,15 @@ CREATE TABLE bids (
 );
 
 CREATE INDEX ON bids (bidder_id, item_id);
+```
+
+2. Copy the data
+```
+\copy bidders FROM 'bidders.csv' WITH HEADER CSV
+
+\copy items FROM 'items.csv' WITH HEADER CSV
+
+\copy bids FROM 'bids.csv' WITH HEADER CSV
 ```
 </details>
 
