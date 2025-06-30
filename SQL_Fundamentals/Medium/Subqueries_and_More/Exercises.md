@@ -73,3 +73,26 @@ CREATE INDEX ON bids (bidder_id, item_id);
 ```
 </details>
 
+<br>
+
+## 2. Conditional Subqueries: IN
+
+### Challenge:
+
+Write a SQL query that shows all items that have had bids put on them. Use the logical operator IN for this exercise, as well as a subquery.
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+SELECT name AS "Bid on Items"
+FROM items i 
+WHERE i.id IN (
+    SELECT DISTINCT item_id FROM bids
+);
+```
+</details>
+
+<br>
+
