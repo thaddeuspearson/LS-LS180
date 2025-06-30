@@ -199,3 +199,25 @@ ORDER BY i.id;
 </details>
 
 <br>
+
+## 7. Row Comparison
+
+### Challenge:
+
+Write an SQL query that will display the id for the item that matches all of the data that we know, but does not use the AND keyword. Here is the data we know:
+
+`'Painting', 100.00, 250.00`
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+SELECT id 
+FROM items i 
+WHERE (
+    ROW(i.name, i.initial_price, i.sales_price) =
+    ROW('Painting', 100.00, 250.00)
+);
+```
+</details>
