@@ -263,3 +263,33 @@ First use just EXPLAIN, then include the ANALYZE option as well.
 
 <br>
 
+## Comparing SQL Statements
+
+### Challenge:
+
+In this exercise, we'll use EXPLAIN ANALYZE to compare the efficiency of two SQL statements. These two statements are actually from the "Query From a Virtual Table" exercise in this set:
+
+```sql
+SELECT MAX(bid_counts.count) FROM
+  (SELECT COUNT(bidder_id) FROM bids GROUP BY bidder_id) AS bid_counts;
+```
+
+```sql
+SELECT COUNT(bidder_id) AS max_bid FROM bids
+  GROUP BY bidder_id
+  ORDER BY max_bid DESC
+  LIMIT 1;
+```
+
+Run `EXPLAIN ANALYZE` on the two statements above. Compare the planning time, execution time, and the total time required to run these two statements. Also compare the total "costs". Which statement is more efficient and why?
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```
+The two queries are dependent upon the system that they are run on, and therefore the original assessment that the first query was more efficient than the second is not an absolute truth.
+
+The spirit of this exercise is to understand that there are always trade-offs on any query, and like anything of moderate complexity, depend on many circumstances.
+```
+</details>
