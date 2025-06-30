@@ -221,3 +221,45 @@ WHERE (
 );
 ```
 </details>
+
+## 8. EXPLAIN
+
+### Challenge:
+
+Use EXPLAIN to check the efficiency of the query statement we used in the exercise on EXISTS:
+
+```sql
+ SELECT b.name
+    FROM bidders b
+    WHERE EXISTS (
+        SELECT 1 FROM bids WHERE bids.bidder_id = b.id
+    );
+```
+
+First use just EXPLAIN, then include the ANALYZE option as well.
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+1. `EXPLAIN`:
+    ```sql
+    EXPLAIN SELECT b.name
+    FROM bidders b
+    WHERE EXISTS (
+        SELECT 1 FROM bids WHERE bids.bidder_id = b.id
+    );
+    ```
+
+2. `EXPLAIN ANALYZE`
+    ```sql
+    EXPLAIN ANALYZE SELECT b.name
+    FROM bidders b
+    WHERE EXISTS (
+        SELECT 1 FROM bids WHERE bids.bidder_id = b.id
+    );
+    ```
+</details>
+
+<br>
+
