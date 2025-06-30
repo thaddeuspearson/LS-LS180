@@ -114,3 +114,34 @@ WHERE i.id NOT IN (
 );
 ```
 </details>
+
+<br>
+
+## 4. Conditional Subqueries: EXISTS
+
+### Challenge:
+
+Write a SELECT query that returns a list of names of everyone who has bid in the auction. While it is possible (and perhaps easier) to do this with a JOIN clause, we're going to do things differently: use a subquery with the EXISTS clause instead.
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+1. Using a subquery:
+    ```sql
+    SELECT b.name
+    FROM bidders b
+    WHERE EXISTS (
+        SELECT 1 FROM bids WHERE bids.bidder_id = b.id
+    );
+    ```
+2. Using a JOIN:
+    ```sql
+    SELECT name
+    FROM bidders b JOIN bids ON b.id = bids.bidder_id
+    GROUP BY b.id
+    ORDER BY b.id;
+    ```
+</details>
+
+<br>
