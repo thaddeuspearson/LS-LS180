@@ -145,3 +145,27 @@ Write a SELECT query that returns a list of names of everyone who has bid in the
 </details>
 
 <br>
+
+## 5. Query From a Transient Table
+
+### Challenge:
+
+Write an SQL query that finds the largest number of bids from an individual bidder.
+
+For this exercise, you must use a subquery to generate a result table _(or transient table)_, and then query that table for the largest number of bids.
+
+### Solution:
+
+<details><summary>Click to Reveal</summary>
+
+```sql
+SELECT MAX(bid_counts.count)
+FROM (
+    SELECT count(bidder_id)
+    FROM bids
+    GROUP BY bidder_id
+) AS bid_counts;
+```
+</details>
+
+<br>
