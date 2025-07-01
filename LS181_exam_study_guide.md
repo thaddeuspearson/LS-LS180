@@ -5,55 +5,175 @@
 ### 1. [Identify the different types of `JOIN`s and explain their differences](https://launchschool.com/books/sql/read/joins#whatissqljoin)
 
 #### (INNER) JOIN
+- Joins rows where both relations have entities
+- no join-generated NULL values
+- Filters incomplete joined rows
 
 #### LEFT (OUTER) JOIN
+- Selects all entries from the left table joined to any correlated entry that exists from the right
+- Generates NULL values for entries on the right that do not have a match for the ON clause
+- Filters results from the right table that do not correspond to an entry in the left table
 
 #### RIGHT (OUTER) JOIN
+- Selects all entries from the right table joined to any correlated entry that exists from the right
+- Generates NULL values for entries on the left that do not have a match for the ON clause
+- Filters results from the left table that do not correspond to an entry in the left table
 
 #### FULL OUTER JOIN
+- Combines LEFT OUTER JOIN and RIGHT OUTER JOIN
+- Selects all entries from the left table joined to any correlated entry that exists from the right
+- Generates NULL values for entries on the right that do not have a match for the ON clause
+- Selects all entries from the right table joined to any correlated entry that exists from the right
+- Generates NULL values for entries on the left that do not have a match for the ON clause
+- Returns selected columns from all entries from both tables
 
 #### CROSS JOIN
+- Joins every entry from the left table with every table on the right
+- Also called the cartesian product
     
 ### 2. [Name and define the three sublanguages of SQL and be able to classify different statements by sublanguage](https://launchschool.com/books/sql/read/interacting_with_postgresql#sqlsublanguages)
 
-#### DDL
+#### DDL:
+- Data Definition Language
+- Used to define the structure of a database and the tables and columns within it
+- `CREATE`, `DROP`, `ALTER`
 
-#### DML
+#### DML:
+- Data Manipulation Language
+- Used to retrieve or modify data stored in a database
+- `SELECT`, `INSERT`, `DELETE`, `UPDATE`
 
-#### DCL
+#### DCL:
+- Data Control Language
+- Used to determine what various users are allowed to do when interacting with a database
+- `GRANT`, `REVOKE`
     
-### 3. Write SQL statements using [`SELECT`](https://launchschool.com/books/sql/read/select_queries#selectquerysyntax), [`INSERT`](https://launchschool.com/books/sql/read/add_data#insertionstatementsyntax), [`UPDATE`](https://launchschool.com/books/sql/read/update_and_delete_data#updatingdata), [`DELETE`](https://launchschool.com/books/sql/read/update_and_delete_data#deletingdata), [`CREATE TABLE`](https://launchschool.com/books/sql/read/create_table#tablecreationsyntax), [`ALTER TABLE`](https://launchschool.com/books/sql/read/alter_table#altertablesyntax), [`DROP TABLE`](https://launchschool.com/books/sql/read/alter_table#droppingtables), [`ADD COLUMN`](https://launchschool.com/books/sql/read/alter_table#addingacolumn) [`ALTER COLUMN`](https://launchschool.com/books/sql/read/alter_table#renamingacolumn), [`DROP COLUMN`](https://launchschool.com/books/sql/read/alter_table#removingacolumn).
+### 3. Write SQL statements using:
 
-#### SELECT
+#### [`SELECT`](https://launchschool.com/books/sql/read/select_queries#selectquerysyntax):
+1. Basic syntax:
+    ```sql
+    SELECT column_name, ... 
+    FROM table_name 
+    WHERE condition;
+    ```
 
-#### INSERT
+#### [`INSERT`](https://launchschool.com/books/sql/read/add_data#insertionstatementsyntax):
+1. Basic syntax:
+    ```sql
+    INSERT INTO table_name (column1_name, column2_name, ... )
+        VALUES (data_for_column1, data_for_column2, ... );
+    ```
 
-#### UPDATE
+#### [`UPDATE`](https://launchschool.com/books/sql/read/update_and_delete_data#updatingdata):
+1. Basic syntax:
+    ```sql
+    UPDATE table_name
+    SET column_name = value, ...
+    WHERE expression;
+    ```
 
-#### DELETE
+#### [`DELETE`](https://launchschool.com/books/sql/read/update_and_delete_data#deletingdata):
+1. Basic syntax:
+    ```sql
+    DELETE FROM table_name WHERE expression;
+    ```
 
-#### CREATE TABLE
+#### [`CREATE TABLE`](https://launchschool.com/books/sql/read/create_table#tablecreationsyntax):
+1. Basic syntax:
+    ```sql
+    CREATE TABLE table_name (
+        column_1_name column_1_data_type [constraints, ... ],
+        column_2_name column_2_data_type [constraints, ... ],
+        .
+        .
+        .
+        constraints
+    );
+    ```
 
-#### ALTER TABLE
+#### [`ALTER TABLE`](https://launchschool.com/books/sql/read/alter_table#altertablesyntax):
+1. Add a Constraint:
+    ```sql
+    ALTER TABLE all_users
+    ADD CONSTRAINT no_empty_name CHECK (full_name != '');
+    ```
 
-#### DROP TABLE
+2. Remove a Constraint:
+    ```sql
+    ALTER TABLE table_name
+    DROP CONSTRAINT constraint_name;
+    ```
 
-#### ADD COLUMN
 
-#### ALTER COLUMN
+#### [`DROP TABLE`](https://launchschool.com/books/sql/read/alter_table#droppingtables):
+1. Basic syntax:
+    ```sql
+    DROP TABLE all_users;
+    ```
 
-#### DROP COLUMN
 
+#### [`ADD COLUMN`](https://launchschool.com/books/sql/read/alter_table#addingacolumn):
+1. Basic syntax:
+    ```sql
+    ALTER TABLE all_users
+    ADD COLUMN last_login timestamp NOT NULL DEFAULT NOW();
+    ```
+
+
+#### [`ALTER COLUMN`](https://launchschool.com/books/sql/read/alter_table#renamingacolumn):
+1. Rename a Column:
+    ```sql
+    ALTER TABLE all_users
+    RENAME COLUMN username TO full_name;
+    ```
+2. Change a Column's datatype:
+    ```sql
+    ALTER TABLE all_users
+    ALTER COLUMN full_name TYPE varchar(25);
+    ```
+3. Set a Column to NOT NULL:
+    ```sql
+    ALTER TABLE table_name
+    ALTER COLUMN column_name SET NOT NULL;
+    ```
+
+#### [`DROP COLUMN`](https://launchschool.com/books/sql/read/alter_table#removingacolumn):
+1. Basic syntax:
+    ```sql
+    ALTER TABLE table_name
+    DROP COLUMN column_name;
+    ```
+
+### 4. Understand how to use:
     
-### 4. Understand how to use [`GROUP BY`](https://launchschool.com/books/sql/read/more_on_select#groupby), [`ORDER BY`](https://launchschool.com/books/sql/read/select_queries#ordering), `WHERE`, and [`HAVING`](https://launchschool.com/lessons/a1779fd2/assignments/f4b7a9dc).
-    
-#### GROUP BY
+#### [`GROUP BY`](https://launchschool.com/books/sql/read/more_on_select#groupby):
+1. Basic syntax:
+    ```sql
+    SELECT column_name, count(id) 
+    FROM table_name
+    GROUP BY column_name;
+    ```
 
-#### ORDER BY
+#### [`ORDER BY`](https://launchschool.com/books/sql/read/select_queries#ordering):
+1. Basic syntax:
+    ```sql
+    SELECT column_name, ...
+    FROM table_name
+    WHERE condition
+    ORDER BY column_name [ASC/DESC];
+    ```
 
-#### WHERE
+#### [`WHERE`](https://launchschool.com/books/sql/read/basics_tutorial#selectrows):
+1. Basic syntax:
+    ```sql
+    SELECT column_name, ...
+    FROM table_name
+    WHERE condition
+    ```
 
-#### HAVING
+#### [`HAVING`](https://launchschool.com/lessons/a1779fd2/assignments/f4b7a9dc):
+
 
 ### 5. [Understand how to create and remove constraints, including `CHECK` constraints](https://launchschool.com/books/sql/read/add_data#constraintsdata)
 
