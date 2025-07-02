@@ -194,35 +194,76 @@
 ### 1. [Describe what a sequence is and what they are used for](https://launchschool.com/lessons/a1779fd2/assignments/00e428da)
 
 #### Sequences
+1. A sequence is a special kind of relation that generates a series of numbers. 
+
+2. A sequence will remember the last number it generated, so it will generate numbers in a predetermined sequence automatically.
 
 ### 2. [Create an auto-incrementing column](https://launchschool.com/lessons/a1779fd2/assignments/00e428da)
 
 #### Auto-incrementing Column
+1. Basic syntax:
+    ```sql
+    CREATE SEQUENCE table1_id_seq;
+    SELECT nextval('table1_id_seq');
+    ```
 
 ### 3. [Define a default value for a column](https://launchschool.com/lessons/a1779fd2/assignments/c6a5a6cb)
 
 #### DEFAULT
+1. Basic syntax:
+    ```sql
+    ALTER TABLE table1 ALTER COLUMN column1 SET DEFAULT 0;
+    ```
 
 ### 4. [Be able to describe what primary, foreign, natural, and surrogate keys are](https://launchschool.com/lessons/a1779fd2/assignments/00e428da)
 
 #### PRIMARY KEY
+1. a Primary key uniquely identifies rows within its own table. 
 
 #### FOREIGN KEY
+1. Foreign keys create relationships by referencing unique columns (usually primary keys) in other tables and enforce referential integrity when constrained.
 
 #### Natural Key
+1. A natural key is an existing value in a dataset that can uniquely identify each row, like a phone number or email address
+
+2. These often have issues like changing or not being unique.
 
 #### Surrogate Key
+1. A surrogate key is a value created solely to identify a row, usually an auto-incrementing number (like an id)
+
+2. This avoids problems that natural keys have because surrogate keys are unique and stable.
 
 ### 5. [Create and remove `CHECK` constraints from a column](https://launchschool.com/books/sql/read/add_data#constraintsdata)
 
-#### CHECK
+#### CREATE CHECK
+1. Basic syntax:
+    ```sql
+    ALTER TABLE table1 ADD CHECK (column_name = condition);
+    ```
+     or
+    ```sql
+    ALTER TABLE table1 ADD CONSTRAINT table1_column_name_check CHECK (column_name = condition);
+    ```
+
+#### Remove CHECK CONSTRAINT
+1. Basic syntax:
+    ```sql
+    ALTER TABLE table1 DROP CONSTRAINT table1_column_name_check;
+    ```
 
 ### 6. [Create and remove foreign key constraints from a column](https://launchschool.com/lessons/5ae760fa/assignments/bb4f3ba2)
 
 #### CREATE FOREIGN KEY
+1. Basic syntax:
+    ```sql
+    ALTER TABLE table1 ADD CONSTRAINT table1_table2_id_fkey FOREIGN KEY (table2_id) REFERENCES table2(id);
+    ```
 
 #### Remove Foreign Key Constraints
-
+1. Basic syntax:
+    ```sql
+    ALTER TABLE table1 DROP CONSTRAINT table1_table2_id_fkey;
+    ```
 <br>
 
 ## III. Database Diagrams
