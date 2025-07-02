@@ -4,32 +4,32 @@
 
 ### 1. [Identify the different types of `JOIN`s and explain their differences](https://launchschool.com/books/sql/read/joins#whatissqljoin)
 
-#### (INNER) JOIN
+#### `(INNER) JOIN`
 - Joins rows where both relations have entities
 - no join-generated NULL values
 - Filters incomplete joined rows
 
-#### LEFT (OUTER) JOIN
+#### `LEFT (OUTER) JOIN`
 - Selects all entries from the left table joined to any correlated entry that exists from the right
 - Generates NULL values for entries on the right that do not have a match for the ON clause
 - Filters results from the right table that do not correspond to an entry in the left table
 
-#### RIGHT (OUTER) JOIN
+#### `RIGHT (OUTER) JOIN`
 - Selects all entries from the right table joined to any correlated entry that exists from the right
 - Generates NULL values for entries on the left that do not have a match for the ON clause
 - Filters results from the left table that do not correspond to an entry in the left table
 
-#### FULL OUTER JOIN
-- Combines LEFT OUTER JOIN and RIGHT OUTER JOIN
+#### `FULL OUTER JOIN`
+- Combines `LEFT OUTER JOIN` and `RIGHT OUTER JOIN`
 - Selects all entries from the left table joined to any correlated entry that exists from the right
 - Generates NULL values for entries on the right that do not have a match for the ON clause
 - Selects all entries from the right table joined to any correlated entry that exists from the right
 - Generates NULL values for entries on the left that do not have a match for the ON clause
 - Returns selected columns from all entries from both tables
 
-#### CROSS JOIN
+#### `CROSS JOIN`
 - Joins every entry from the left table with every table on the right
-- Also called the cartesian product
+- Also called the **cartesian product**
     
 ### 2. [Name and define the three sublanguages of SQL and be able to classify different statements by sublanguage](https://launchschool.com/books/sql/read/interacting_with_postgresql#sqlsublanguages)
 
@@ -105,13 +105,11 @@
     DROP CONSTRAINT constraint_name;
     ```
 
-
 #### [`DROP TABLE`](https://launchschool.com/books/sql/read/alter_table#droppingtables):
 1. Basic syntax:
     ```sql
     DROP TABLE all_users;
     ```
-
 
 #### [`ADD COLUMN`](https://launchschool.com/books/sql/read/alter_table#addingacolumn):
 1. Basic syntax:
@@ -119,7 +117,6 @@
     ALTER TABLE all_users
     ADD COLUMN last_login timestamp NOT NULL DEFAULT NOW();
     ```
-
 
 #### [`ALTER COLUMN`](https://launchschool.com/books/sql/read/alter_table#renamingacolumn):
 1. Rename a Column:
