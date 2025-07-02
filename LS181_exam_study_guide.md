@@ -175,8 +175,16 @@
 ### 5. [Understand how to create and remove constraints, including `CHECK` constraints](https://launchschool.com/books/sql/read/add_data#constraintsdata)
 
 #### `CREATE CONSTRAINT`
+1. Basic syntax:
+    ```sql
+    ALTER TABLE table_name ADD UNIQUE (column_name);
+    ```
 
 #### `DROP CONSTRAINT`
+1. Basic syntax:
+    ```sql
+    ALTER TABLE table_name DROP CONSTRAINT constraint_name;
+    ```
     
 ### 6. [Be familiar with using subqueries and join tables](https://launchschool.com/lessons/e752508c/assignments/2009d549)
 
