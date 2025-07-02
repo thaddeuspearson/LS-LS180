@@ -174,9 +174,9 @@
 
 ### 5. [Understand how to create and remove constraints, including `CHECK` constraints](https://launchschool.com/books/sql/read/add_data#constraintsdata)
 
-#### CREATE CONSTRAINT
+#### `CREATE CONSTRAINT`
 
-#### DROP CONSTRAINT
+#### `DROP CONSTRAINT`
     
 ### 6. [Be familiar with using subqueries and join tables](https://launchschool.com/lessons/e752508c/assignments/2009d549)
 
@@ -206,7 +206,7 @@
 
 ### 3. [Define a default value for a column](https://launchschool.com/lessons/a1779fd2/assignments/c6a5a6cb)
 
-#### DEFAULT
+#### `DEFAULT`
 1. Basic syntax:
     ```sql
     ALTER TABLE table1 ALTER COLUMN column1 SET DEFAULT 0;
@@ -214,10 +214,10 @@
 
 ### 4. [Be able to describe what primary, foreign, natural, and surrogate keys are](https://launchschool.com/lessons/a1779fd2/assignments/00e428da)
 
-#### PRIMARY KEY
+#### `PRIMARY KEY`
 1. a Primary key uniquely identifies rows within its own table. 
 
-#### FOREIGN KEY
+#### `FOREIGN KEY`
 1. Foreign keys create relationships by referencing unique columns (usually primary keys) in other tables and enforce referential integrity when constrained.
 
 #### Natural Key
@@ -232,7 +232,7 @@
 
 ### 5. [Create and remove `CHECK` constraints from a column](https://launchschool.com/books/sql/read/add_data#constraintsdata)
 
-#### CREATE CHECK
+#### `CREATE CHECK`
 1. Basic syntax:
     ```sql
     ALTER TABLE table1 ADD CHECK (column_name = condition);
@@ -250,13 +250,13 @@
 
 ### 6. [Create and remove foreign key constraints from a column](https://launchschool.com/lessons/5ae760fa/assignments/bb4f3ba2)
 
-#### CREATE FOREIGN KEY
+#### `CREATE FOREIGN KEY`
 1. Basic syntax:
     ```sql
     ALTER TABLE table1 ADD CONSTRAINT table1_table2_id_fkey FOREIGN KEY (table2_id) REFERENCES table2(id);
     ```
 
-#### Remove Foreign Key Constraints
+#### Remove FOREIGN KEY Constraints
 1. Basic syntax:
     ```sql
     ALTER TABLE table1 DROP CONSTRAINT table1_table2_id_fkey;
