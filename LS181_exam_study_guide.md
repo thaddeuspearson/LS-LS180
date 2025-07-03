@@ -15,7 +15,7 @@
 - Filters results from the right table that do not correspond to an entry in the left table
 
 #### `RIGHT (OUTER) JOIN`
-- Selects all entries from the right table joined to any correlated entry that exists from the right
+- Selects all entries from the right table joined to any correlated entry that exists from the left
 - Generates NULL values for entries on the left that do not have a match for the ON clause
 - Filters results from the left table that do not correspond to an entry in the left table
 
@@ -23,7 +23,7 @@
 - Combines `LEFT OUTER JOIN` and `RIGHT OUTER JOIN`
 - Selects all entries from the left table joined to any correlated entry that exists from the right
 - Generates NULL values for entries on the right that do not have a match for the ON clause
-- Selects all entries from the right table joined to any correlated entry that exists from the right
+- Selects all entries from the right table joined to any correlated entry that exists from the left
 - Generates NULL values for entries on the left that do not have a match for the ON clause
 - Returns selected columns from all entries from both tables
 
@@ -171,6 +171,14 @@
 
 #### [`HAVING`](https://launchschool.com/lessons/a1779fd2/assignments/f4b7a9dc):
 
+1. Basic syntax:
+    ```sql
+    SELECT column2, SUM(column2) AS column1_and_column2
+    FROM table1
+    GROUP BY column1
+    HAVING SUM(column2) > 80;
+    ```
+
 
 ### 5. [Understand how to create and remove constraints, including `CHECK` constraints](https://launchschool.com/books/sql/read/add_data#constraintsdata)
 
@@ -250,7 +258,7 @@
     ALTER TABLE table1 ADD CONSTRAINT table1_column_name_check CHECK (column_name = condition);
     ```
 
-#### Remove CHECK CONSTRAINT
+#### Remove `CHECK CONSTRAINT`
 1. Basic syntax:
     ```sql
     ALTER TABLE table1 DROP CONSTRAINT table1_column_name_check;
@@ -264,7 +272,7 @@
     ALTER TABLE table1 ADD CONSTRAINT table1_table2_id_fkey FOREIGN KEY (table2_id) REFERENCES table2(id);
     ```
 
-#### Remove FOREIGN KEY Constraints
+#### Remove `FOREIGN KEY CONSTRAINT`
 1. Basic syntax:
     ```sql
     ALTER TABLE table1 DROP CONSTRAINT table1_table2_id_fkey;
